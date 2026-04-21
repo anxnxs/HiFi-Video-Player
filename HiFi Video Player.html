@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - HiFi Video Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            --text-color: #1a1a2e;
+            --accent-color: #ff3366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb, #fbc2eb, #a6c1ee);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 动态背景动画 */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 漂浮的液态光球 */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+            opacity: 0.8;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 51, 102, 0.5);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: rgba(51, 204, 255, 0.5);
+            bottom: -150px;
+            right: -100px;
+            animation-delay: -2s;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 204, 0, 0.4);
+            top: 40%;
+            left: 60%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        /* 玻璃态主容器 */
+        .glass-container {
+            position: relative;
+            z-index: 10;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            max-width: 800px;
+            width: 100%;
+            padding: 50px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(90deg, #ff9a9e, #a1c4fd, #fbc2eb);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff3366, #6633ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #4a4a6a;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.5);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        section {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        section:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2b2b4a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px 0;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        ul li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #ff3366;
+            background: rgba(255, 51, 102, 0.1);
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-email:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .glass-container {
+                padding: 30px 20px;
+            }
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            section {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="glass-container">
+        <header class="header">
+            <h1>📄 Privacy Policy</h1>
+            <p>HiFi Video Player</p>
+            <div style="margin-top: 15px;">
+                <small style="color: #666; font-weight: bold;">Last updated: April 21, 2026</small>
+            </div>
+        </header>
+
+        <section>
+            <h2>1. Introduction</h2>
+            <p>HiFi Video Player ("the App") is a local video playback application designed to provide high-quality media playback without relying on cloud services or user accounts.</p>
+            <p>This Privacy Policy explains how the App handles user data. By using the App, you agree to the terms described in this policy.</p>
+        </section>
+
+        <section>
+            <h2>2. Data Collection</h2>
+            <p>HiFi Video Player is designed with privacy in mind.</p>
+            <p><span class="highlight">We do NOT collect, store, or share any personal data.</span></p>
+            <p>Specifically:</p>
+            <ul>
+                <li>No account registration is required</li>
+                <li>No personal information is collected</li>
+                <li>No analytics or tracking services are used</li>
+                <li>No user data is transmitted to any server</li>
+            </ul>
+            <p>All media playback happens locally on your device or through direct connections you initiate (such as SFTP or streaming URLs).</p>
+        </section>
+
+        <section>
+            <h2>3. Permissions</h2>
+            <p>The App may request the following permissions to function properly:</p>
+            
+            <h3>📁 Storage Access</h3>
+            <p><strong>Used to:</strong> Read and play local video and audio files on your device</p>
+            
+            <h3>🌐 Network Access</h3>
+            <p><strong>Used to:</strong></p>
+            <ul>
+                <li>Stream online media (e.g., HTTP, HLS streams)</li>
+                <li>Connect to remote servers (e.g., SFTP playback)</li>
+            </ul>
+            <p><em>The App does not use network access to collect or transmit personal data.</em></p>
+
+            <h3>🔌 USB Access (if applicable)</h3>
+            <p><strong>Used to:</strong> Detect and communicate with external USB DAC devices for high-quality audio output</p>
+            <p><em>No data from USB devices is collected or transmitted.</em></p>
+        </section>
+
+        <section>
+            <h2>4. Data Usage</h2>
+            <p>Since no personal data is collected:</p>
+            <ul>
+                <li>No data is stored</li>
+                <li>No data is shared with third parties</li>
+                <li>No data is used for advertising or analytics</li>
+            </ul>
+            <p>All operations remain on your device.</p>
+        </section>
+
+        <section>
+            <h2>5. Third-Party Services</h2>
+            <p>HiFi Video Player does not integrate any third-party services that collect user data, such as:</p>
+            <ul>
+                <li>Analytics platforms</li>
+                <li>Advertising networks</li>
+                <li>Social media integrations</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Remote Connections</h2>
+            <p>The App allows users to connect to remote sources such as:</p>
+            <ul>
+                <li>SFTP servers</li>
+                <li>Streaming media URLs</li>
+            </ul>
+            <p>These connections are initiated and configured entirely by the user. The App does not monitor, log, or transmit this connection data.</p>
+        </section>
+
+        <section>
+            <h2>7. Children's Privacy</h2>
+            <p>HiFi Video Player is not specifically designed for children under the age of 13.</p>
+            <p>The App does not knowingly collect any personal information from children.</p>
+        </section>
+
+        <section>
+            <h2>8. Security</h2>
+            <p>Because the App does not collect or store personal data, there is minimal risk of data exposure.</p>
+            <p>All media playback and processing occur locally on the device or through user-initiated connections.</p>
+        </section>
+
+        <section>
+            <h2>9. Changes to This Privacy Policy</h2>
+            <p>This Privacy Policy may be updated from time to time.</p>
+            <p>Any changes will be reflected on this page with an updated "Last updated" date.</p>
+        </section>
+
+        <section>
+            <h2>10. Contact</h2>
+            <p>If you have any questions or concerns about this Privacy Policy, you can contact:</p>
+            <a href="mailto:jacobsonmariette@gmail.com" class="contact-email">📧 jacobsonmariette@gmail.com</a>
+        </section>
+    </div>
+
+</body>
+</html>
